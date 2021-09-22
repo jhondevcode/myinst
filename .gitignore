@@ -1,0 +1,7 @@
+# Virtualenv files
+/bin
+/lib
+pyvenv.cfg
+
+# Jetbrains IDE
+/.idea
