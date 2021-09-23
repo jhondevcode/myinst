@@ -14,11 +14,17 @@ __temp_dir_name__ = "mi_temp"
 def __get_download_dir() -> str:
     download_dir = "/tmp"
     user_home = get_user_home()
-    with open(join(join(user_home, ".config"), "user-dirs.dirs"), "r", encoding="utf-8") as xdg_file:
+    with open(
+        join(join(user_home, ".config"), "user-dirs.dirs"), "r", encoding="utf-8"
+    ) as xdg_file:
         for line in xdg_file:
             if "XDG_DOWNLOAD_DIR" in line:
-                download_dir = line.replace("\n", "").replace(
-                    '"', '').replace("$HOME", str(user_home)).split("=")[1]
+                download_dir = (
+                    line.replace("\n", "")
+                    .replace('"', "")
+                    .replace("$HOME", str(user_home))
+                    .split("=")[1]
+                )
                 break
     return download_dir
 
