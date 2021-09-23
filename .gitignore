@@ -5,3 +5,6 @@ pyvenv.cfg
 
 # Jetbrains IDE
 /.idea
+
+# Ignore all log files
+*.log
