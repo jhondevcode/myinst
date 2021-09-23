@@ -1,7 +1,10 @@
 #!/usr/bin/python
 
-"""This module provides the functions to access the temporary directory in which the files will be downloaded,
-in the same way it provides the necessary abstraction to operate on the temporary directory. """
+"""
+This module provides the functions to access the temporary directory in which
+the files will be downloaded, in the same way it provides the necessary
+abstraction to operate on the temporary directory.
+"""
 from os import mkdir
 from os.path import join, isdir
 from shutil import rmtree
