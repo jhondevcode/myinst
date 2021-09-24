@@ -1,13 +1,19 @@
 #!/usr/bin/python3
 
 """
-    This module is responsible for running the cli installer.
+This module is responsible for running the cli installer.
 """
+
+from core import logger, start
+from platform import system, release, python_version
 
 
 def main():
-    pass
+    logger.info(
+        f'Starting in "{system()} {release()}" with "python {python_version()}"'
+    )
+    start()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
