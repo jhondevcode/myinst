@@ -1,8 +1,9 @@
+from core.constants import WORKSPACE_PATH
 import datetime
 import logging
 import os
 
-LOG_DIR = os.path.join(str(__file__).replace("/core/logger.py", ""), "logs")
+LOG_DIR = os.path.join(WORKSPACE_PATH, "logs")
 
 if not os.path.isdir(LOG_DIR):
     os.mkdir(LOG_DIR)
