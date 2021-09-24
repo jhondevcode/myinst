@@ -10,3 +10,4 @@ pyvenv.cfg
 *.log
 
 # Ignore all python bytecodes
+*pyc
