@@ -4,14 +4,12 @@
 Here utility functions are defined for all types of processing, from text to
 links and files.
 """
-import os
+from core.constants import EXIT_SUCCESS, EXIT_FAILURE
 from pathlib import Path
+from core import logger
+import os
 import tarfile
-import core.logger as logger
 import zipfile
-
-EXIT_SUCCESS = True
-EXIT_FAILURE = False
 
 
 def clear():
