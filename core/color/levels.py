@@ -1,4 +1,4 @@
-import colors
+import core.color.colors as colors
 
 
 def info(message: str):

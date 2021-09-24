@@ -7,7 +7,7 @@ links and files.
 import os
 from pathlib import Path
 import tarfile
-import logger
+import core.logger as logger
 import zipfile
 
 EXIT_SUCCESS = True
