@@ -8,3 +8,5 @@ pyvenv.cfg
 
 # Ignore all log files
 *.log
+
+# Ignore all python bytecodes
