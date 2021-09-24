@@ -8,7 +8,7 @@ non-binary files.
 
 from typing import List
 from os import path
-import logger
+from core import logger
 
 
 def contains_line(file: str, line: str) -> bool:

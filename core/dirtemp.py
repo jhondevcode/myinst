@@ -8,7 +8,7 @@ abstraction to operate on the temporary directory.
 from os import mkdir
 from os.path import join, isdir
 from shutil import rmtree
-from utilities import get_user_home
+from core.utilities import get_user_home
 
 __temp_dir__ = ""
 __temp_dir_name__ = "mi_temp"
