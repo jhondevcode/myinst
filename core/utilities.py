@@ -4,9 +4,10 @@
 Here utility functions are defined for all types of processing, from text to
 links and files.
 """
-from core.constants import EXIT_SUCCESS, EXIT_FAILURE
+from core.constants import EXIT_SUCCESS, EXIT_FAILURE, ARCH, DEBIAN, FEDORA, MANJARO
 from pathlib import Path
 from core import logger
+from platform import release
 import os
 import tarfile
 import zipfile
@@ -15,6 +16,21 @@ import zipfile
 def clear():
     """This function runs the process to clean up the terminal."""
     os.system("clear")
+
+
+def get_os_name() -> str:
+    """This function is in charge of detecting the type of distribution to which the OS belongs."""
+    if ARCH in release().lower():
+        return ARCH
+    elif MANJARO in release().lower():
+        return MANJARO
+    else:
+        if os.path.isfile("/usr/bin/apt"):
+            return DEBIAN
+        elif os.path.isfile("/usr/bin/dnf"):
+            return FEDORA
+        else:
+            return ""
 
 
 def get_user_home():
