@@ -69,6 +69,9 @@ class ArchLangInstaller(CommonInstallations):
         This method performs the installation of the ruby language from the
         official arch linux repositories.
         """
+        clear()
+        info("Installing ruby...\n")
+        logger.info("Installing ruby")
         return call("sudo pacman -S ruby --noconfirm".split(" "))
 
     def install_yay(self):
