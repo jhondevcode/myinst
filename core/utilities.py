@@ -33,6 +33,10 @@ def get_os_name() -> str:
             return ""
 
 
+def is_system_supported() -> bool:
+    return get_os_name() != ""
+
+
 def get_user_home():
     """This function returns the location of the user's home directory."""
     return Path.home()
