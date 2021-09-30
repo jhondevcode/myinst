@@ -10,7 +10,6 @@ from core.utilities import clear
 from os import system
 
 
-# noinspection PyMethodMayBeStatic
 class CommonInstallations(InstallWizard):
     """
     This class provides common installation methods for each distribution, as
@@ -67,7 +66,7 @@ class CommonInstallations(InstallWizard):
         so it will not depend on the distribution.
         """
         clear()
-        info("Installing the rust programming language ...")
+        info("Installing the rust programming language...")
         return system("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh")
 
     def install_scala(self):
