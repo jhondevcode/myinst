@@ -9,3 +9,7 @@ class InstallWizard:
 
     def __init__(self):
         super(InstallWizard, self).__init__()
+
+    def run(self):
+        """This method will be used to launch the installation wizard"""
+        pass
