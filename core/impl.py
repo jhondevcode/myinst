@@ -3,7 +3,7 @@ This module contains unimplemented abstract classes, the classes present here
 are used for multiple purposes.
 """
 
-from core.color import info, error
+from core.color import success, error
 from core.constants import EXIT_SUCCESS
 from core.utilities import clear
 
@@ -26,7 +26,7 @@ class InstallWizard:
         if for_clear:
             clear()
         if value == EXIT_SUCCESS:
-            info(f"The {name} installation completed successfully.")
+            success(f"The {name} installation completed successfully.")
         else:
             error(f"{name} could not be installed.")
 
