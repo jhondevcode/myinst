@@ -3,5 +3,10 @@
     "name": "Golang",
     "version": "1.17.1",
     "url": "https://golang.org/dl/go{VERSION}.linux-amd64.tar.gz"
+  },
+  "groovy": {
+    "name": "Apache Groovy",
+    "version": "4.0.0-beta-1",
+    "url": "https://groovy.jfrog.io/ui/api/v1/ui/nativeBrowser/dist-release-local/groovy-zips/apache-groovy-binary-{VERSION}.zip"
   }
 }
