@@ -96,7 +96,9 @@ class ManjaroLangInstaller(ArchLangInstaller):
 
     def install_yay(self):
         """This method install yay from the official manjaro repositories."""
-        pass
+        info("Installing yay...\n")
+        logger.info("Installing yay")
+        return call("sudo pacman -Syu yay --noconfirm".split(" "))
 
     def run(self):
         pass
