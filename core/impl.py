@@ -12,6 +12,14 @@ class InstallWizard:
 
     def __init__(self):
         super(InstallWizard, self).__init__()
+        self.__objectives = {}
+
+    def add_item(self, key, value):
+        self.__objectives[key] = value
+        return self
+
+    def get_items(self):
+        return self.__objectives
 
     def check_exit_code(self, value: int, name: str):
         if value == EXIT_SUCCESS:
