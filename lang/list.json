@@ -1,2 +1,7 @@
 {
+  "go": {
+    "name": "Golang",
+    "version": "1.17.1",
+    "url": "https://golang.org/dl/go{VERSION}.linux-amd64.tar.gz"
+  }
 }
