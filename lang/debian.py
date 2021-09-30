@@ -31,6 +31,7 @@ class DebianLangInstaller(CommonInstallations):
                 if 0 <= entered <= 4:
                     clear()
                     info(f"Installing OpenJDK {jdk_versions[entered]}...\n")
+                    logger.info(f"Installing OpenJDK {jdk_versions[entered]}")
                     return call(f"sudo apt install openjdk-{jdk_versions[entered]}-jdk -y".split(" "))
                 elif entered == 5:
                     clear()
