@@ -13,5 +13,13 @@
     "name": "Kotlin lang",
     "version": "1.5.31",
     "url": "https://github.com/JetBrains/kotlin/releases/download/v{VERSION}/kotlin-compiler-{VERSION}.zip"
+  },
+  "node": {
+    "name": "Node JS",
+    "versions": [
+      "v14.18.0",
+      "v16.10.0"
+    ],
+    "url": "https://nodejs.org/dist/{VERSION}/node-{VERSION}-linux-x64.tar.xz"
   }
 }
