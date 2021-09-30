@@ -21,5 +21,10 @@
       "v16.10.0"
     ],
     "url": "https://nodejs.org/dist/{VERSION}/node-{VERSION}-linux-x64.tar.xz"
+  },
+  "scala": {
+    "name": "Scala lang",
+    "version": "3.0.2",
+    "url": "https://github.com/lampepfl/dotty/releases/download/{VERSION}/scala3-{VERSION}.tar.gz"
   }
 }
