@@ -80,8 +80,8 @@ class CommonInstallations(InstallWizard):
         self.add_item(2, "Apache groovy")\
             .add_item(3, "Golang")\
             .add_item(4, "Kotlin")\
-            .add_item(5, "NodeJS") \
-            .add_item(6, "OpenJDK") \
+            .add_item(5, "NodeJS")\
+            .add_item(6, "OpenJDK")\
             .add_item(7, "Ruby")\
             .add_item(8, "Rust")\
             .add_item(9, "Scala")
