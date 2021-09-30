@@ -57,6 +57,7 @@ class CommonInstallations(InstallWizard):
 
     def install_ruby(self):
         """The ruby distribution will be different in each distribution."""
+        clear()
         info(f"Installing Ruby...\n")
         logger.info(f"Installing Ruby")
 
