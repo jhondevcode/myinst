@@ -6,8 +6,7 @@ This module is responsible for running the cli installer.
 
 from core import logger, start
 from core.color import error
-from core.utilities import get_os_name
-from core.constants import ARCH, DEBIAN, FEDORA, MANJARO
+from core.utilities import get_os_name, is_system_supported
 from platform import system, release, python_version
 
 
@@ -15,10 +14,9 @@ def main():
     logger.info(
         f'Starting in "{system()} {release()}" with "python {python_version()}"'
     )
-    os_name = get_os_name()
-    if os_name in [ARCH, DEBIAN, FEDORA, MANJARO]:
+    if is_system_supported():
         logger.logger.info(
-            f'The underlying operating system was found to belong to the "{os_name}" family'
+            f'The underlying operating system was found to belong to the "{get_os_name()}" family'
         )
         start()
     else:
