@@ -5,6 +5,10 @@ and arch-based distributions.
 
 from subprocess import call
 from lang.common import CommonInstallations
+from core.color import info, error, print_cyan
+from core.color.colors import green
+from core.logger import logger
+from core.utilities import clear
 
 
 # noinspection PyMethodMayBeStatic
@@ -30,6 +34,33 @@ class ArchLangInstaller(CommonInstallations):
         in the official arch repositories.
         """
         jdk_versions = [7, 8, 11, 16]
+        clear()
+        while True:
+            info("=====> OpenJDK installer <=====")
+            for index, version in enumerate(jdk_versions):
+                print_cyan(f"{index + 1}) OpenJDK {version}")
+            print_cyan("5) Back")
+            entered = input(green("Option [1-6]: "))
+            if entered.isnumeric():
+                entered = int(entered) - 1
+                if 0 <= entered <= 2:
+                    clear()
+                    info(f"Installing OpenJDK {jdk_versions[entered]}...\n")
+                    logger.info(f"Installing OpenJDK {jdk_versions[entered]}")
+                    return call(f"sudo pacman -S jdk{jdk_versions[entered]}-openjdk --noconfirm".split(" "))
+                elif entered == 3:
+                    info(f"Installing OpenJDK {jdk_versions[entered]}...\n")
+                    logger.info(f"Installing OpenJDK {jdk_versions[entered]}")
+                    return call(f"sudo pacman -S jdk-openjdk --noconfirm".split(" "))
+                elif entered == 4:
+                    clear()
+                    break
+                else:
+                    clear()
+                    error("The requested option is not available")
+            else:
+                clear()
+                error("The entered value is not valid")
 
     def install_ruby(self):
         """
