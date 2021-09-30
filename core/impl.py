@@ -5,6 +5,7 @@ are used for multiple purposes.
 
 from core.color import info, error
 from core.constants import EXIT_SUCCESS
+from core.utilities import clear
 
 
 class InstallWizard:
@@ -21,7 +22,9 @@ class InstallWizard:
     def get_items(self):
         return self.__objectives
 
-    def check_exit_code(self, value: int, name: str):
+    def check_exit_code(self, value: int, name: str, for_clear=True):
+        if for_clear:
+            clear()
         if value == EXIT_SUCCESS:
             info(f"The {name} installation completed successfully.")
         else:
