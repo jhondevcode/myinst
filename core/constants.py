@@ -1,5 +1,5 @@
-EXIT_SUCCESS = True
-EXIT_FAILURE = False
+EXIT_SUCCESS = 0
+EXIT_FAILURE = 1
 ARCH = "arch"
 DEBIAN = "debian"
 FEDORA = "fedora"
