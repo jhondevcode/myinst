@@ -11,7 +11,6 @@ from core.logger import logger
 from core.utilities import clear
 
 
-# noinspection PyMethodMayBeStatic
 class ArchLangInstaller(CommonInstallations):
     """
     This class provides specific methods to install programming languages from
@@ -26,6 +25,9 @@ class ArchLangInstaller(CommonInstallations):
         This method performs the installation of the basic development
         components: gcc, g ++, make, etc, in arch.
         """
+        clear()
+        info("Installing base-devel...\n")
+        logger.info("Installing base-devel")
         return call("sudo pacman -S base-devel --noconfirm".split(" "))
 
     def install_jdk(self):
