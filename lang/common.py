@@ -76,6 +76,16 @@ class CommonInstallations(InstallWizard):
         """
         pass
 
+    def register_processes(self):
+        self.add_process(["Apache groovy", self.install_groovy])
+        self.add_process(["Golang", self.install_go])
+        self.add_process(["Kotlin", self.install_kotlin])
+        self.add_process(["NodeJS", self.install_nodejs])
+        self.add_process(["OpenJDK", self.install_jdk])
+        self.add_process(["Ruby", self.install_ruby])
+        self.add_process(["Rust", self.install_rust])
+        self.add_process(["Scala", self.install_scala])
+
     def run(self):
         self.add_item(2, "Apache groovy")\
             .add_item(3, "Golang")\
