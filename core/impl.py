@@ -6,6 +6,7 @@ are used for multiple purposes.
 from core.color import success, error
 from core.constants import EXIT_SUCCESS
 from core.utilities import clear
+from typing import Dict, List
 
 
 class InstallWizard:
@@ -13,11 +14,11 @@ class InstallWizard:
 
     def __init__(self):
         super(InstallWizard, self).__init__()
-        self.__objectives = {}
-        self.__process = []
+        self.__objectives: Dict[int, str] = {}
+        self.__process: List[List] = []
         self.register_processes()
 
-    def add_item(self, key, value):
+    def add_item(self, key: int, value: str):
         self.__objectives[key] = value
         return self
 
