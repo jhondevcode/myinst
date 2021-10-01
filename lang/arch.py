@@ -3,12 +3,15 @@ This module offers classes for installing programming languages on archlinux
 and arch-based distributions.
 """
 
+from os import chdir
 from subprocess import call
 from lang.common import CommonInstallations
 from core.color import info, error, print_cyan
 from core.color.colors import green
+from core.constants import EXIT_SUCCESS, EXIT_FAILURE
 from core.logger import logger
 from core.utilities import clear
+from core.dirtemp import prepare, get_path
 
 
 class ArchLangInstaller(CommonInstallations):
@@ -79,7 +82,14 @@ class ArchLangInstaller(CommonInstallations):
         This method install yay from the source code as it is not available
         in the official repositories.
         """
-        pass
+        prepare()
+        chdir(get_path())
+        exit_code = call("git clone https://aur.archlinux.org/yay.git".split(" "))
+        if exit_code == EXIT_SUCCESS:
+            chdir("yay")
+            return call("makepkg -si --noconfirm".split(" "))
+        else:
+            return EXIT_FAILURE
 
     def run(self):
         pass
