@@ -3,11 +3,17 @@ This module provides classes and functions that work on all supported Linux
 distros.
 """
 
-from core.color import info
+from core.constants import EXIT_FAILURE
+from core.color import error, info, print_cyan
+from core.color.colors import green
 from core.impl import InstallWizard
+from core.installation import install
 from core.logger import logger
 from core.utilities import clear
-from os import system
+from core.dirtemp import prepare, get_path
+from core.fileutil import dict_from_json, download_file, URLError
+from os import system, chdir
+from os.path import join
 
 
 class CommonInstallations(InstallWizard):
@@ -52,7 +58,47 @@ class CommonInstallations(InstallWizard):
         This method installs nodejs from a tarball. It offers two versions of
         installation: LTS, Current.
         """
-        pass
+        def download_install(node_url: str) -> int:
+            try:
+                file_path = download_file(node_url, get_path())
+                return install(file_path, type="tar", category="lang", envar="$NODE_HOME", bin=True)
+            except URLError as ex:
+                logger.error(ex)
+                return EXIT_FAILURE
+
+        clear()
+        json_data = dict_from_json(join(str(__file__).replace("/common.py", ""), "list.json"), "node")
+        if json_data is not None:
+            prepare()
+            chdir(get_path())
+            name: str = json_data["name"]
+            url: str = json_data["url"]
+            versions: list = json_data["versions"]
+            while True:
+                info("=====> NodeJS installer <=====")
+                print_cyan(f"1) {name} LTS {versions[0]}")
+                print_cyan(f"2) {name} Current {versions[1]}")
+                print_cyan(f"3) Back")
+                entered = input(green("Option [1-3]: "))
+                if entered == 1:
+                    clear()
+                    url = url.replace("{VERSION}", versions[0])
+                    info(f"Downloading {name} {versions[0]} from {url}")
+                    return download_install(url)
+                elif entered == 2:
+                    clear()
+                    url = url.replace("{VERSION}", str(versions[1]))
+                    info(f"Downloading {name} {versions[1]} from {url}")
+                    return download_install(url)
+                elif entered == 3:
+                    clear()
+                    break
+                else:
+                    clear()
+                    error("The requested option is not available")
+        else:
+            logger.error("Cannot find Node JS metadata")
+        return EXIT_FAILURE
 
     def install_ruby(self):
         """The ruby distribution will be different in each distribution."""
