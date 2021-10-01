@@ -61,7 +61,7 @@ class CommonInstallations(InstallWizard):
         def download_install(node_url: str) -> int:
             try:
                 file_path = download_file(node_url, get_path())
-                return install(file_path, type="tar", category="lang", envar="$NODE_HOME", bin=True)
+                return install(file_path, "node", "NODE_HOME", filetype="tar", category="lang", tobin=True)
             except URLError as ex:
                 logger.error(ex)
                 return EXIT_FAILURE
