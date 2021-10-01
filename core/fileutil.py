@@ -8,6 +8,7 @@ non-binary files.
 
 from typing import List
 from os import path
+from json import load
 from core import logger
 
 
@@ -44,6 +45,18 @@ def contains_lines(file: str, lines: List[str]) -> bool:
     else:
         logger.logger.error(f'The file "{file}" does not exist')
         return False
+
+
+def dict_from_json(file: str, key):
+    if path.isfile(file):
+        json_file = open(file, mode="r", encoding="utf-8")
+        data = load(json_file)
+        json_file.close()
+        if key in data:
+            return data[key]
+        else:
+            return None
+    return None
 
 
 def replace_line(file: str, old: str, new: str):
