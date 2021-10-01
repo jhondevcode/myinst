@@ -84,6 +84,8 @@ class ArchLangInstaller(CommonInstallations):
         """
         prepare()
         chdir(get_path())
+        info("Installing yay...\n")
+        logger.info("Installing yay")
         exit_code = call("git clone https://aur.archlinux.org/yay.git".split(" "))
         if exit_code == EXIT_SUCCESS:
             chdir("yay")
