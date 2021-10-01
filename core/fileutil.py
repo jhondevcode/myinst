@@ -10,6 +10,8 @@ from typing import List
 from os import path
 from json import load
 from core import logger
+from urllib import request
+from urllib.error import URLError
 
 
 def contains_line(file: str, line: str) -> bool:
@@ -57,6 +59,12 @@ def dict_from_json(file: str, key):
         else:
             return None
     return None
+
+
+def download_file(url: str, destiny: str):
+    file_path = path.join(destiny, url.split("/")[-1])
+    request.urlretrieve(url, file_path)
+    return file_path
 
 
 def replace_line(file: str, old: str, new: str):
